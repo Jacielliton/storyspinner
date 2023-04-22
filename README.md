@@ -10,6 +10,9 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) 
+
+
+
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -20,6 +23,9 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `user_id` (`user_id`),
   KEY `story_id` (`story_id`)
 ) 
+
+
+
 CREATE TABLE IF NOT EXISTS `friendships` (
   `user1_id` int(11) NOT NULL,
   `user2_id` int(11) NOT NULL,
@@ -27,6 +33,9 @@ CREATE TABLE IF NOT EXISTS `friendships` (
   PRIMARY KEY (`user1_id`,`user2_id`),
   KEY `user2_id` (`user2_id`)
 ) 
+
+
+
 CREATE TABLE IF NOT EXISTS `likes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -39,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
 ) 
 
 
+
 CREATE TABLE IF NOT EXISTS `notifications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
@@ -48,6 +58,9 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) 
+
+
+
 CREATE TABLE IF NOT EXISTS `private_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender_id` int(11) NOT NULL,
@@ -59,6 +72,8 @@ CREATE TABLE IF NOT EXISTS `private_messages` (
   KEY `sender_id` (`sender_id`),
   KEY `recipient_id` (`recipient_id`)
 ) 
+
+
 
 
 CREATE TABLE IF NOT EXISTS `stories` (
@@ -74,12 +89,17 @@ CREATE TABLE IF NOT EXISTS `stories` (
   KEY `author_id` (`author_id`)
 ) 
 
+
+
+
 CREATE TABLE IF NOT EXISTS `story_categories` (
   `story_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`story_id`,`category_id`),
   KEY `category_id` (`category_id`)
 ) 
+
+
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -89,6 +109,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_admin` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) 
+
+
 
 CREATE TABLE IF NOT EXISTS `votes` (
   `user_id` int(11) NOT NULL,
